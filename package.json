@@ -1,0 +1,17 @@
+{
+  "name": "zigflare",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:wasm": "cd lib && zig build && cp zig-out/bin/zigflare.wasm ../src/zigflare.wasm",
+    "dev": "npm run build:wasm && wrangler dev",
+    "deploy": "npm run build:wasm && wrangler deploy",
+    "test:zig": "cd lib && zig build test",
+    "typecheck": "wrangler types && tsc --noEmit"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.0",
+    "wrangler": "latest"
+  }
+}
